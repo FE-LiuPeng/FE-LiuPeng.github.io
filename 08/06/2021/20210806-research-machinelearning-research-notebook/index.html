@@ -35,32 +35,32 @@
     <!-- meta -->
 
 
-<title>Things Learned from Creating the Blog | David Personal Blog</title>
+<title>NoteBook 0806 -- a | David Personal Blog</title>
 
 
-    <meta name="keywords" content="Tech, Code, Long-Article">
+    <meta name="keywords" content="Code, Notebook, Daily">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="This Blog is created based on GitHub webpage, and powered by Hexo. Hexo is an open source Blog personal blog framework which allow people to build their own Blog. I believe there are a lot of introdu">
+    <meta name="description" content="the first attempt of the network  fix the problem to processing too slow(with embedding the sequence first)  do not use DataFrame in building the DataLoader, translate DataFrame into tensor before pu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Things Learned from Creating the Blog">
-<meta property="og:url" content="https://david-bominwei.github.io/08/29/2021/210829-things-learned-from-creating-blog/index.html">
+<meta property="og:title" content="NoteBook 0806 -- a">
+<meta property="og:url" content="https://david-bominwei.github.io/08/06/2021/20210806-research-machinelearning-research-notebook/index.html">
 <meta property="og:site_name" content="David Personal Blog">
-<meta property="og:description" content="This Blog is created based on GitHub webpage, and powered by Hexo. Hexo is an open source Blog personal blog framework which allow people to build their own Blog. I believe there are a lot of introdu">
+<meta property="og:description" content="the first attempt of the network  fix the problem to processing too slow(with embedding the sequence first)  do not use DataFrame in building the DataLoader, translate DataFrame into tensor before pu">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/David-BominWei/Blog-Image/20210829152158.png">
-<meta property="article:published_time" content="2021-08-29T06:36:11.000Z">
-<meta property="article:modified_time" content="2021-08-29T07:31:55.555Z">
+<meta property="og:image" content="https://david-bominwei.github.io/08/06/2021/20210806-research-machinelearning-research-notebook/Figures%5Ca-0806-Fig1.svg">
+<meta property="article:published_time" content="2021-08-06T06:36:11.000Z">
+<meta property="article:modified_time" content="2021-09-12T16:28:15.358Z">
 <meta property="article:author" content="David W">
-<meta property="article:tag" content="Tech">
 <meta property="article:tag" content="Code">
-<meta property="article:tag" content="Long-Article">
+<meta property="article:tag" content="Notebook">
+<meta property="article:tag" content="Daily">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/David-BominWei/Blog-Image/20210829152158.png">
+<meta name="twitter:image" content="https://david-bominwei.github.io/08/06/2021/20210806-research-machinelearning-research-notebook/Figures%5Ca-0806-Fig1.svg">
 
 
     
@@ -160,14 +160,14 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        Things Learned from Creating the Blog
+        NoteBook 0806 -- a
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2021/08/" class="post-meta__date button">08-29-2021</a>
+        <a href="/archives/2021/08/" class="post-meta__date button">08-06-2021</a>
         
-    <span class="separate-dot"></span><a href="/categories/Technique-Sharing/" class="button">Technique Sharing</a>
+    <span class="separate-dot"></span><a href="/categories/Research/" class="button">Research</a>
 
-    <span class="separate-dot"></span><a href="/categories/Technique-Sharing/Blog-Building/" class="button">Blog Building</a>
+    <span class="separate-dot"></span><a href="/categories/Research/Machine-Learning/" class="button">Machine Learning</a>
 
  
         
@@ -186,31 +186,67 @@
 <article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <blockquote>
-<p>This Blog is created based on GitHub webpage, and powered by <code>Hexo</code>. <code>Hexo</code> is an open source Blog personal blog framework which allow people to build their own Blog. I believe there are a lot of introduction of how to build personal blog with <code>Hexo</code> on GitHub, but I still want to share the process that how I build my personal blog with that.</p>
-</blockquote>
-<h2 id="Start-my-own-Blog-–-Build-Blog-with-Hexo"><a href="#Start-my-own-Blog-–-Build-Blog-with-Hexo" class="headerlink" title="Start my own Blog – Build Blog with Hexo:"></a>Start my own Blog – Build Blog with <code>Hexo</code>:</h2><h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>Because I’m using <code>Windows</code> system on my personal laptop, so I will particularly introduce the way to build the blog with <code>Windows</code> system locally and deploy it on GitHub</p>
-<p>In order to start a new blog with <code>Hexo</code> on GitHub, we need to install <code>Node.js</code> first which allow us to install <code>Hexo</code> with <code>npm</code> and create a new GitHub Repositories with <code>[Your GitHub Name].github.io</code> as the Repositories name</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>And after that, you should add it into <code>PATH</code></p>
-<p>After download <code>Hexo</code>, you can select a folder to initialize you own Blog locally with:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hexo init</span><br></pre></td></tr></table></figure>
-
-<p>After that, you will have some files in the folder, <strong>plz don’t push those files into your GitHub Repositories</strong>, the only thing you need to do is change the <code>_config.yml</code> file’s <code>deploy</code> with:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">git@github.com:[your</span> <span class="string">github</span> <span class="string">account</span> <span class="string">name]/[your</span> <span class="string">github</span> <span class="string">account</span> <span class="string">name].github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<p>You may notice that the <code>repository</code> block above should be the Webpage that you can clone your GitHub code, I’m using <code>SSH</code> to clone and push the code, and I also recommend you to use it:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/David-BominWei/Blog-Image/20210829152158.png" alt="how to get the link on your own repository page"></p>
-<p>After change the settings on <code>.yml</code> file, we can push the website into the GitHub page with:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># clean the original page and generate the new page with </span></span><br><span class="line">hexo clean &amp; hexo g</span><br><span class="line"><span class="comment"># install the deployer for github first</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># deploy the page into github with</span></span><br><span class="line">hexo deploy </span><br></pre></td></tr></table></figure>
+        <ul>
+<li><p>the first attempt of the network</p>
+</li>
+<li><p>fix the problem to processing too slow(with embedding the sequence first)</p>
+<ul>
+<li>do not use <code>DataFrame</code> in building the <code>DataLoader</code>, translate <code>DataFrame</code> into <code>tensor</code> before put into <code>DataLoader</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># train</span></span><br><span class="line">train_seq = tensor(np.array(train_data.iloc[:,<span class="number">305</span>:])).unsqueeze(dim=<span class="number">1</span>).to(torch.float32)</span><br><span class="line">train_mol = tensor(np.array(train_data.iloc[:,<span class="number">5</span>:<span class="number">305</span>])).unsqueeze(dim=<span class="number">1</span>).to(torch.float32)</span><br><span class="line">train_Ki = tensor(np.array(train_data.iloc[:,<span class="number">4</span>]))</span><br><span class="line"></span><br><span class="line">trainDataset = TensorDataset(train_mol,train_seq,train_Ki)</span><br><span class="line">trainDataLoader = DataLoader(trainDataset, batch_size=<span class="number">128</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>add normalization layer after ReLU</p>
+</li>
+</ul>
+<h2 id="need-to-do-tomorrow"><a href="#need-to-do-tomorrow" class="headerlink" title="need to do tomorrow"></a>need to do tomorrow</h2><ul>
+<li>check the embedding results</li>
+<li>improve the network accuracy</li>
+</ul>
+<h2 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h2><ul>
+<li>when building the CNN part of the network, should add normalization layer every time after <em>Conv</em></li>
+<li>don’t put <code>DataFrame</code> into <code>DataSet</code></li>
+</ul>
+<h2 id="figures-and-reference-for-paper"><a href="#figures-and-reference-for-paper" class="headerlink" title="figures and reference for paper"></a>figures and reference for paper</h2><ul>
+<li><p>about the data:</p>
+<ul>
+<li>the statistic review of protein length(exclude a single data larger than 7k)</li>
+</ul>
+<p><img src="Figures%5Ca-0806-Fig1.svg" alt="Figure1"></p>
+<ul>
+<li>x label: protein sequence length</li>
+<li>y label: number of sequence</li>
+</ul>
+</li>
+</ul>
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 08-29-2021</p></div> 
-    <div class="post-entry__tags"><a href="/tags/Tech/" class="post-tags__link button"># Tech</a><a href="/tags/Code/" class="post-tags__link button"># Code</a><a href="/tags/Long-Article/" class="post-tags__link button"># Long-Article</a></div> 
+    <div class="post-footer__meta"><p>updated at 09-13-2021</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Code/" class="post-tags__link button"># Code</a><a href="/tags/Notebook/" class="post-tags__link button"># Notebook</a><a href="/tags/Daily/" class="post-tags__link button"># Daily</a></div> 
 </article>
 
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/08/09/2021/20210809-research-machinelearning-research-notebook/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            NoteBook 0809 -- a
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+        </div>
+    </div>
 
 
 
