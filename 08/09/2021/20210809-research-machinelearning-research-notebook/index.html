@@ -48,13 +48,13 @@
     <meta name="description" content="8&#x2F;9: to-do   finish the improved network  do some statistically evaluate on the first version of model and find the problems in data   current status start to use the model with build 2 resnet blocks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning NoteBook 0809">
-<meta property="og:url" content="https://david-bominwei.github.io/08/09/2021/20210809-research-machinelearning-research-notebook/index.html">
+<meta property="og:url" content="https://fe-liupeng.github.io/08/09/2021/20210809-research-machinelearning-research-notebook/index.html">
 <meta property="og:site_name" content="David Personal Blog">
 <meta property="og:description" content="8&#x2F;9: to-do   finish the improved network  do some statistically evaluate on the first version of model and find the problems in data   current status start to use the model with build 2 resnet blocks">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/David-BominWei/Blog-Image/a-0809-Fig1.svg">
-<meta property="article:published_time" content="2021-08-09T21:18:21.000Z">
-<meta property="article:modified_time" content="2021-09-12T16:56:43.362Z">
+<meta property="article:published_time" content="2021-08-09T09:18:21.000Z">
+<meta property="article:modified_time" content="2021-09-12T04:56:44.000Z">
 <meta property="article:author" content="David W">
 <meta property="article:tag" content="Code">
 <meta property="article:tag" content="Notebook">
@@ -62,11 +62,34 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/David-BominWei/Blog-Image/a-0809-Fig1.svg">
 
-
+    
     
 <link rel="stylesheet" href="/css/style/main.css">
  
 
+    
+<link rel="stylesheet" href="/css/home/owl.carousel.css">
+ 
+<!-- 
+<link rel="stylesheet" href="/css/home/barfiller.css">
+ -->
+
+<link rel="stylesheet" href="/css/home/animate.css">
+
+
+<link rel="stylesheet" href="/css/home/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/css/home/magnific-popup.css">
+
+
+<link rel="stylesheet" href="/css/home/index.css">
+
+
+<link rel="stylesheet" href="/css/home/Bubble.css">
+
+
+    
     
     
         <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" >
@@ -91,19 +114,24 @@
 
     <!-- custom head -->
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
 
     <body>
         <div id="app">
-            <header class="header">
+            <header class="header" id="header">
+  <div class="content">
     <div class="header__left">
         <a href="/" class="button">
-            <span class="logo__text">David&#39;s Blog</span>
+            <!-- <span class="logo__text">David&#39;s Blog</span> -->
+            <img class="logo-box" src="/imgs/logo.png" alt="">
         </a>
     </div>
     <div class="header__right">
         
             <div class="navbar__menus">
+                
+                    <a href="/home/" class="navbar-menu button">Home</a>
                 
                     <a href="/tags/" class="navbar-menu button">Tags</a>
                 
@@ -135,6 +163,8 @@
             <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
             <div class="dropdown-menus" id="dropdown-menus">
                 
+                    <a href="/home/" class="dropdown-menu button">Home</a>
+                
                     <a href="/tags/" class="dropdown-menu button">Tags</a>
                 
                     <a href="/archives/" class="dropdown-menu button">Archives</a>
@@ -148,6 +178,7 @@
             </div>
         
     </div>
+  </div>
 </header>
 
 
@@ -194,7 +225,7 @@
 <ul>
 <li>each block contain 2 <code>Conv1d</code> module and the starting block will have 1 more <code>Conv1d</code> module with 1*1 core</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Block</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, in_channels, out_channels, use_conv1=<span class="literal">False</span>, strides=<span class="number">1</span></span>):</span></span><br><span class="line">    <span class="built_in">super</span>().__init__()</span><br><span class="line">    </span><br><span class="line">    self.process = nn.Sequential (</span><br><span class="line">      nn.Conv1d(in_channels, out_channels, <span class="number">3</span>, stride=strides, padding=<span class="number">1</span>),</span><br><span class="line">      nn.BatchNorm1d(out_channels),</span><br><span class="line">      nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">      nn.Conv1d(out_channels, out_channels, <span class="number">3</span>, padding=<span class="number">1</span>),</span><br><span class="line">      nn.BatchNorm1d(out_channels)</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> use_conv1:</span><br><span class="line">      self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size=<span class="number">1</span>, stride=strides)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      self.conv1 = <span class="literal">None</span></span><br><span class="line">      </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span></span><br><span class="line">      left = self.process(x)</span><br><span class="line">      right = x <span class="keyword">if</span> self.conv1 <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> self.conv1(x)</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> F.relu(left + right)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">cnnNet</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="built_in">super</span>().__init__()</span><br><span class="line">    </span><br><span class="line">    self.pre = nn.Sequential (</span><br><span class="line">      nn.Conv1d(<span class="number">1</span>, <span class="number">32</span>, <span class="number">7</span>, stride=<span class="number">2</span>, padding=<span class="number">3</span>, bias=<span class="literal">False</span>),</span><br><span class="line">      nn.BatchNorm1d(<span class="number">32</span>),</span><br><span class="line">      nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">      nn.MaxPool1d(<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    self.layer1 = self._make_layer(<span class="number">32</span>, <span class="number">16</span>, <span class="number">2</span>)</span><br><span class="line">      </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_make_layer</span>(<span class="params">self, in_channels, out_channels, block_num, strides=<span class="number">1</span></span>):</span></span><br><span class="line"></span><br><span class="line">    layers = [Block(in_channels, out_channels, use_conv1=<span class="literal">True</span>, strides=strides)] <span class="comment"># build the first layer with conv1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(block_num):</span><br><span class="line">        layers.append(Block(out_channels, out_channels))</span><br><span class="line">      </span><br><span class="line">    <span class="keyword">return</span> nn.Sequential(*layers)</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span></span><br><span class="line">    x = self.pre(x)</span><br><span class="line">    x = self.layer1(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Block</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels, use_conv1=<span class="literal">False</span>, strides=<span class="number">1</span></span>):</span><br><span class="line">    <span class="built_in">super</span>().__init__()</span><br><span class="line">    </span><br><span class="line">    self.process = nn.Sequential (</span><br><span class="line">      nn.Conv1d(in_channels, out_channels, <span class="number">3</span>, stride=strides, padding=<span class="number">1</span>),</span><br><span class="line">      nn.BatchNorm1d(out_channels),</span><br><span class="line">      nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">      nn.Conv1d(out_channels, out_channels, <span class="number">3</span>, padding=<span class="number">1</span>),</span><br><span class="line">      nn.BatchNorm1d(out_channels)</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> use_conv1:</span><br><span class="line">      self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size=<span class="number">1</span>, stride=strides)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      self.conv1 = <span class="literal">None</span></span><br><span class="line">      </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">      left = self.process(x)</span><br><span class="line">      right = x <span class="keyword">if</span> self.conv1 <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> self.conv1(x)</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> F.relu(left + right)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">cnnNet</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">super</span>().__init__()</span><br><span class="line">    </span><br><span class="line">    self.pre = nn.Sequential (</span><br><span class="line">      nn.Conv1d(<span class="number">1</span>, <span class="number">32</span>, <span class="number">7</span>, stride=<span class="number">2</span>, padding=<span class="number">3</span>, bias=<span class="literal">False</span>),</span><br><span class="line">      nn.BatchNorm1d(<span class="number">32</span>),</span><br><span class="line">      nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">      nn.MaxPool1d(<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    self.layer1 = self._make_layer(<span class="number">32</span>, <span class="number">16</span>, <span class="number">2</span>)</span><br><span class="line">      </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">_make_layer</span>(<span class="params">self, in_channels, out_channels, block_num, strides=<span class="number">1</span></span>):</span><br><span class="line"></span><br><span class="line">    layers = [Block(in_channels, out_channels, use_conv1=<span class="literal">True</span>, strides=strides)] <span class="comment"># build the first layer with conv1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(block_num):</span><br><span class="line">        layers.append(Block(out_channels, out_channels))</span><br><span class="line">      </span><br><span class="line">    <span class="keyword">return</span> nn.Sequential(*layers)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">    x = self.pre(x)</span><br><span class="line">    x = self.layer1(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure></li>
 <li><p>the first version of network is finished</p>
 <ul>
 <li>the model is overfitting try to add the $p$ value in <code>dropout</code></li>
@@ -247,13 +278,13 @@
         </div>
         <div class="nav__next">
             
-                <a href="/08/06/2021/20210806-research-machinelearning-research-notebook/" class="nav__link">
+                <a href="/08/06/2021/20210806-research-machinelearning-research-notebook%20copy/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            Machine Learning Notebook 0806
+                            Machine Learning Notebook 0806 copy
                         </div>
                     </div>
                     <div>
@@ -289,12 +320,48 @@
     
         
         <p class="footer-copyright">
-            Copyright © 2021 <a href="/">David Personal Blog</a>
+            Copyright © 2022 <a href="/">David Personal Blog</a>
         </p>
     
     
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
 </footer>
+
+<script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+
+
+<script src="/js/home/jquery-2.2.4.min.js"></script>
+<!-- <script src="/js/home/vendor/popper.min.js"></script>
+<script src="/js/home/vendor/bootstrap.min.js"></script> -->
+<script src="/js/home/vendor/owl.carousel.min.js"></script>
+<!-- <script src="/js/home/vendor/isotope.pkgd.min.js"></script>
+<script src="/js/home/vendor/jquery.barfiller.js"></script> -->
+<!-- <script src="/js/home/vendor/loopcounter.js"></script> -->
+<!-- <script src="/js/home/vendor/slicknav.min.js"></script> -->
+<script src="/js/home/active.js"></script>
+<script src="/js/home/custom.js"></script>
+<script src="/js/home/preloader.js"></script>
+<script src="/js/home/Bubble.js"></script>
+<script type="text/javascript">
+  /*3D标签云*/
+  tagcloud({
+      selector: ".tagcloud",  //元素选择器
+      fontsize: 16,       //基本字体大小, 单位px
+      radius: 200,         //滚动半径, 单位px 页面宽度和高度的五分之一
+      mspeed: "slow",   //滚动最大速度, 取值: slow, normal(默认), fast
+      ispeed: "slow",   //滚动初速度, 取值: slow, normal(默认), fast
+      direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+      keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+  });
+  window.addEventListener('scroll',function(){
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    if(scrollTop>80) {
+      $('#header').addClass('add-bg');
+    }else{
+      $('#header').removeClass('add-bg');
+    }
+  })
+  </script>
 
         </div>
          
